@@ -24,3 +24,11 @@ When you finished setting, Create new index.php
 	$text = $bot->getMessageText(); //when user send text to bot
 	
 	$bot->reply($text); // bot reply to user
+
+<h1>About LINE Messaging API</h1>
+
+Please refer to the official API documents for details.
+
+en: https://devdocs.line.me/en/
+
+ja: https://devdocs.line.me/ja/
