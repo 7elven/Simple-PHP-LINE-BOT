@@ -1,5 +1,5 @@
 # Simple-PHP-LINE-BOT
-Simple PHP Line Bot using cURL without line SDK <br />
+Simple PHP LINE BOT using cURL without line SDK <br />
 by Nontachai Korninai
 
 <h1>Setting</h1>
