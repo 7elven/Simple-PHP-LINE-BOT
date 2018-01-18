@@ -19,14 +19,16 @@ public function getChannelSecret(){
 ```
 <h1>Example : Simple BOT</h1>
 When you finished setting, Create new index.php
+
+
 ```php
 require_once __DIR__ . '/lineBot.php';
-
 $bot = new Linebot();
-$text = $bot->getMessageText(); //when user send text to bot
-	
+
+$text = $bot->getMessageText(); //when user send text to bot	
 $bot->reply($text); // bot reply to user
 ```
+
 <h1>About LINE Messaging API</h1>
 
 Please refer to the official API documents for details.
