@@ -1,8 +1,11 @@
 
 <?php
 	
-//	CREATE BY NONTACHAI KONINAI
+//	CREATE BY NONTACHAI KORNINAI
 //	01 OCTOBER 2016
+//
+//	UPDATE BY NONTACHAI KORNINAI
+//	25 MARCH 2018
 	
 require_once __DIR__ . '/setting.php';
 class Linebot {
@@ -48,6 +51,83 @@ class Linebot {
 		
 		$result = $this->httpPost($api,$body);
 		return $result;
+	}
+	
+	public function push($body){
+		$api = $this->apiPush;
+		$result = $this->httpPost($api, $body);
+		return $result;
+    	}
+
+    	public function pushText($to, $text){
+		$body = array(
+		    'to' => $to,
+		    'messages' => [
+			array(
+			    'type' => 'text',
+			    'text' => $text
+			)
+		    ]
+		);
+		$this->push($body);
+	 }
+
+   	 public function pushImage($to, $imageUrl, $previewImageUrl = false){
+        	$body = array(
+		    'to' => $to,
+		    'messages' => [
+			array(
+			    'type' => 'image',
+			    'originalContentUrl' => $imageUrl,
+			    'previewImageUrl' => $previewImageUrl ? $previewImageUrl : $imageUrl
+			)
+		    ]
+		);
+		$this->push($body);
+    	}
+
+    	public function pushVideo($to, $videoUrl, $previewImageUrl){
+        	$body = array(
+          	  'to' => $to,
+          	  'messages' => [
+          	      array(
+			    'type' => 'video',
+			    'originalContentUrl' => $videoUrl,
+			    'previewImageUrl' => $previewImageUrl
+			)
+		    ]
+		);
+        	$this->push($body);
+    	}
+
+    	public function pushAudio($to, $audioUrl, $duration){
+		$body = array(
+		    'to' => $to,
+		    'messages' => [
+			array(
+			    'type' => 'audio',
+			    'originalContentUrl' => $audioUrl,
+			    'duration' => $duration
+			)
+		    ]
+		);
+		$this->push($body);
+	}
+
+    	public function pushLocation($to, $title, $address, $latitude, $longitude){
+		$body = array(
+		    'to' => $to,
+		    'messages' => [
+			array(
+			    'type' => 'location',
+			    'title' => $title,
+			    'address' => $address,
+			    'latitude' => $latitude,
+			    'longitude' => $longitude
+			)
+		    ]
+		);
+		$this->push($body);
 	}
 	
 	public function getMessageText(){
