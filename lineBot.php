@@ -147,5 +147,10 @@ class Linebot {
 		$userId = $webhook->{"events"}[0]->{"source"}->{"userId"}; 
 		return $userId;
 	}
+	public function getGroupId(){
+		$webhook = $this->webhookEventObject;
+		$groupId = $webhook->{"events"}[0]->{"source"}->{"groupId"}; 
+		return $groupId;
+	}
 	
 }
